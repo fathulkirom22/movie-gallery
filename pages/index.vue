@@ -12,11 +12,15 @@
 <script>
 export default {
   fetch(){
-    this.$axios.get("movies")
-      .then(res=>{
-        this.movies = res.data
-        this.filterMovies()
-      })
+    this.$nextTick(() => {
+      this.$nuxt.$loading.start()
+      this.$axios.get("movies")
+        .then(res=>{
+          this.movies = res.data
+          this.filterMovies()
+          this.$nuxt.$loading.finish()
+        })
+    })
   },
   data:()=>({}),
   computed: {

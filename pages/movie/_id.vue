@@ -21,10 +21,14 @@
 <script>
 export default {
   fetch(){
-    this.$axios.get(`movies/${this.$route.params.id}`)
-      .then(res=>{
-        this.movie = res.data
-      })
+    this.$nextTick(() => {
+      this.$nuxt.$loading.start()
+      this.$axios.get(`movies/${this.$route.params.id}`)
+        .then(res=>{
+          this.movie = res.data
+          this.$nuxt.$loading.finish()
+        })
+    })
   },
   data:()=>({
     movie: {}
