@@ -5,8 +5,12 @@
       div
         no-ssr
           b-datepicker(v-model="date" placeholder="Filter date" range)
-    .d-flex.flex-wrap.justify-content-between
+    .movies-container
       MovieThumbnail.mb-4(v-for="movie in filtered_movies" :key="movie.id" :movie="movie")
+    .d-flex.w-100.mt-5.justify-content-center(v-if="filtered_movies.length == 0")
+      .text-center
+        img.img-no-data(src="~/assets/img/ic_no_data.png")
+        .mt-3 No data
 </template>
 
 <script>
@@ -90,4 +94,19 @@ export default {
   font-size: 48px
   line-height: 58px
   color: #FFFFFF
+.movies-container
+  display: grid
+  grid-template-columns: auto auto auto auto auto
+  // justify-content: center
+  justify-content: space-between 
+.img-no-data
+  width: 50px
+  height: 50px
+
+@media (max-width: 768px)
+  .title
+    font-size: 18px
+  .movies-container
+    display: grid
+    grid-template-columns: auto auto
 </style>

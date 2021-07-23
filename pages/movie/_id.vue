@@ -71,4 +71,8 @@ export default {
     background-position: 100% 100%
   to 
     background-position: 0% 0%
+
+@media (max-width: 768px)
+  .title
+    font-size: 24px
 </style>

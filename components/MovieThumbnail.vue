@@ -52,4 +52,14 @@ export default {
     background-position: 100% 100%
   to 
     background-position: 0% 0%
+
+@media (max-width: 768px)
+  .movie-thumbnail
+    width: 150px
+    height: 300px
+    .movie-title
+      font-size: 14px
+    .fill
+      height: 230px
+
 </style>
