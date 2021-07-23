@@ -1,9 +1,9 @@
 <template lang='pug'>
   b-container.mt-5
-    b-row
+    b-row.mb-5
       b-col(cols=12 md=3)
         .fill-thumbnail.mb-4
-          img(:src="movie.image")
+          b-img-lazy.img(:src="movie.image")
       b-col(cols=12 md=9)
         .title.mb-3 {{movie.title}}
         .like.mb-3.d-flex.align-items-center
@@ -40,10 +40,13 @@ export default {
     overflow: hidden
     width: 240px
     height: 355px
-    img
+    .img
       object-fit: cover
       min-width: 100%
       min-height: 100%
+      background: linear-gradient(-45deg, #ffffff, #f5f0f0, #968f8f, #f5f0f0, #ffffff)
+      background-size: 300% 300%
+      animation: load 1s ease infinite
   .title
     font-weight: 600
     font-size: 32px
@@ -59,4 +62,9 @@ export default {
     font-size: 14px
     line-height: 16px
     color: #FFFFFF
+@keyframes load 
+  from
+    background-position: 100% 100%
+  to 
+    background-position: 0% 0%
 </style>
