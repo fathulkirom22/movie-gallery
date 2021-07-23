@@ -26,6 +26,7 @@ export default {
         })
     })
   },
+  fetchOnServer: false,
   data:()=>({}),
   computed: {
     movies:{
