@@ -1,7 +1,7 @@
 <template lang='pug'>
   .movie-thumbnail(@click="gotoDetail()")
     .fill
-      img(:src="movie.image")
+      b-img-lazy.img(:src="movie.image")
     .movie-title.p-2 {{movie.title}}
 </template>
 
@@ -39,9 +39,21 @@ export default {
     align-items: center
     overflow: hidden
     height: 289px
-    img
+    .img
       border-radius: 6px 6px 0 0
       object-fit: cover
       min-width: 100%
       min-height: 100%
+      position: relative
+      overflow: hidden
+      background: linear-gradient(-45deg, #ffffff, #f5f0f0, #968f8f, #f5f0f0, #ffffff)
+      background-size: 400% 400%
+      animation: load 1s ease infinite
+@keyframes load 
+  0% 
+    background-position: 0% 50%
+  50% 
+    background-position: 100% 50%
+  100% 
+    background-position: 0% 50%
 </style>
