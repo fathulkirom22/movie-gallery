@@ -65,6 +65,9 @@ export default {
     font-size: 48px
     line-height: 58px
     color: #FFFFFF
+    text-decoration: none
+    &:hover
+      text-decoration: none
   .search
     min-width: 300px
     height: 58px

@@ -4,7 +4,7 @@
       .title Trending Movies
       div
         no-ssr
-          b-datepicker(v-model="date" placeholder="Filter date" range)
+          b-datepicker.w-100(v-model="date" placeholder="Filter date" range)
     .movies-container
       MovieThumbnail.mb-4(v-for="movie in filtered_movies" :key="movie.id" :movie="movie")
     .d-flex.w-100.mt-5.justify-content-center(v-if="filtered_movies.length == 0")
